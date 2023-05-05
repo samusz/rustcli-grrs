@@ -1,7 +1,9 @@
-# Depedencies installation 
+# Depedencies installation
+
 This can be tricky ! Error messages can fool y into doing unessery configs.
 
-I had an error installing iced crate 
+I had an error installing iced crate
+
 ```bash
    Compiling servo-fontconfig-sys v5.1.0
 error: failed to run custom build command for `servo-fontconfig-sys v5.1.0`
@@ -47,6 +49,7 @@ Caused by:
   ', /home/samusz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/servo-fontconfig-sys-5.1.0/build.rs:34:17
   note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
+
 So I added the PKG_CONFIG_PATH in `.profile` and `.bashrc` and it didn't solve the problem.
 After seaching in the Rust Discord, I found someone talking about dependencies for Rust.
 
