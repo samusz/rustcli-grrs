@@ -1,6 +1,9 @@
+use anyhow::{Context, Result};
 /// cargo run -- clap Cargo.toml
 use clap::Parser;
 use anyhow::{Context, Result};
+#[macro_use]
+extern crate log;
 
 /// Search for parttern in a file and displays the lines that contains it.
 #[derive(Parser)]
@@ -13,6 +16,8 @@ struct Cli {
 
 
 fn main() -> Result<()> {
+    env_logger::init(); // loging 
+    info!("starting up");
     let args = Cli::parse();
     let content = std::fs::read_to_string(&args.path)
         .with_context(|| format!("could not read file `{}`", args.path.display()))?;
@@ -27,5 +32,7 @@ fn main() -> Result<()> {
             println!("{} : {}", i, line);
         }
     }
+
+    info!("shuting down");
     Ok(())
 }
