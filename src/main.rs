@@ -5,7 +5,7 @@ use clap::Parser;
 extern crate log;
 
 /// Search for parttern in a file and displays the lines that contains it.
-#[derive(Parser)]
+#[derive(Debug, Clone, Parser)]
 struct Cli {
     /// The pattern to look for 
     pattern: String,
@@ -14,6 +14,7 @@ struct Cli {
 }
 
 /// state of the app
+#[derive(Debug)]
 struct Counter {
     // The counter value
     value: i32,
